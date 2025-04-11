@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events & Packages - X Stop</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/enhanced-styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .events-section { padding: 60px 0; }
+    .package-card { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; margin-bottom: 20px; }
+    .package-card h3 { color: var(--x-yellow); }
+  </style>
+</head>
+<body>
+  <div id="header-container"></div>
+
+  <section class="events-section">
+    <div class="container">
+      <h1 class="section-title">Events & Packages</h1>
+
+      <h2>Birthday Packages</h2>
+      <div class="package-card">
+        <h3>Basic Birthday Package</h3>
+        <p>Includes 2 hours of activities, cake, and decorations. Starting at AED 500 for 10 guests.</p>
+        <a href="https://wa.me/971557490383?text=I'd like to book a Basic Birthday Package" class="btn btn-gold">Book Now</a>
+      </div>
+      <div class="package-card">
+        <h3>Deluxe Birthday Package</h3>
+        <p>Includes 3 hours of activities, cake, decorations, and a meal from X Café. Starting at AED 800 for 10 guests.</p>
+        <a href="https://wa.me/971557490383?text=I'd like to book a Deluxe Birthday Package" class="btn btn-gold">Book Now</a>
+      </div>
+
+      <h2>Group Bookings</h2>
+      <div class="package-card">
+        <h3>Group Fun Package</h3>
+        <p>Discounted rates for groups of 15 or more. Includes access to all activities at your chosen branch.</p>
+        <a href="https://wa.me/971557490383?text=I'd like to book a Group Fun Package" class="btn btn-gold">Book Now</a>
+      </div>
+
+      <h2>Corporate Events</h2>
+      <div class="package-card">
+        <h3>Team Building Package</h3>
+        <p>Customized activities for corporate teams, including team-building games and catering from X Café.</p>
+        <a href="https://wa.me/971557490383?text=I'd like to book a Team Building Package" class="btn btn-gold">Book Now</a>
+      </div>
+
+      <h2>Special Offers</h2>
+      <div class="package-card">
+        <h3>Bowling & Coffee Combo (Super Bowling)</h3>
+        <p>Get a free coffee with any bowling game purchase. Valid all day, every day.</p>
+      </div>
+      <div class="package-card">
+        <h3>Horror Movie Nights (Haunted X Café)</h3>
+        <p>Join us every Thursday at 8 PM for horror movie screenings. Check Instagram for weekly movie selection.</p>
+      </div>
+
+      <div class="special-booking-info text-center mt-5">
+        <h3>For All Event Bookings:</h3>
+        <p><i class="fas fa-phone"></i> +971 55 749 0383 (Contact the Owner)</p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:info.xholdings@gmail.com">info.xholdings@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-container"></div>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/navigation.js"></script>
+  <script>
+    fetch('/components/header/header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        if (mobileMenuBtn && mobileMenuOverlay && mobileMenuClose) {
+          mobileMenuBtn.addEventListener('click', () => mobileMenuOverlay.style.display = 'flex');
+          mobileMenuClose.addEventListener('click', () => mobileMenuOverlay.style.display = 'none');
+        }
+      });
+
+    fetch('/components/footer/footer.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('footer-container').innerHTML = data);
+  </script>
+</body>
+</html>

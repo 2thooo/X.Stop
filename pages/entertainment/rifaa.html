@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X Entertainment Rifaa | X Stop</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/enhanced-styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div id="header-container"></div>
+
+  <main class="branch-page">
+    <div class="container">
+      <div class="branch-hero">
+        <img src="/assets/SHOPS_LOGOS/entertainment-logo.png" alt="Entertainment Logo" class="branch-logo">
+        <h1>X Entertainment Rifaa</h1>
+        <div class="branch-details">
+          <div class="branch-info">
+            <p class="branch-timing"><i class="fas fa-clock"></i> Daily 4 PM – 2 AM</p>
+            <p class="branch-phone"><i class="fas fa-phone"></i> +971 50 902 7520</p>
+            <div class="social-media-links">
+              <a href="https://www.instagram.com/x.stop.uae/" target="_blank" class="social-media-link" data-platform="instagram">
+                <i class="fab fa-instagram"></i> @x.stop.uae
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="branch-map-container">
+        <div id="branch-map" data-branch-id="rifaa"></div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=25.6741,55.7806" target="_blank" class="directions-button">
+          <i class="fas fa-directions"></i> Get Directions
+        </a>
+      </div>
+
+      <div class="branch-content">
+        <div class="branch-description">
+          <h2>About X Entertainment Rifaa</h2>
+          <p>Our Rifaa branch offers a selection of entertainment activities including Laser Tag, PlayStation, and PC Gaming. It's a great spot for an evening of fun with friends.</p>
+        </div>
+
+        <div class="activities-list">
+          <h2>Available Activities</h2>
+          <ul>
+            <li>Laser Tag</li>
+            <li>PlayStation</li>
+            <li>PC Gaming</li>
+          </ul>
+        </div>
+
+        <div class="booking-cta">
+          <h2>Visit Us Today!</h2>
+          <p>Experience the excitement at X Entertainment Rifaa!</p>
+          <a href="/booking.html?branch=rifaa" class="cta-button">Book Now</a>
+          <div class="special-booking-info">
+            <h3>For Group Reservations & Special Events:</h3>
+            <p><i class="fas fa-phone"></i> +971 55 749 0383 (Contact the Owner)</p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:info.xholdings@gmail.com">info.xholdings@gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/navigation.js"></script>
+  <script src="/assets/js/maps/branch-maps.js"></script>
+  <script src="/assets/js/social-media.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initBranchMap" async defer></script>
+  <script>
+    fetch('/components/header/header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        if (mobileMenuBtn && mobileMenuOverlay && mobileMenuClose) {
+          mobileMenuBtn.addEventListener('click', () => mobileMenuOverlay.style.display = 'flex');
+          mobileMenuClose.addEventListener('click', () => mobileMenuOverlay.style.display = 'none');
+        }
+      });
+
+    fetch('/components/footer/footer.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('footer-container').innerHTML = data);
+  </script>
+</body>
+</html>

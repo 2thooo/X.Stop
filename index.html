@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X Stop - Entertainment, Cafe, and Flowers in Ras Al Khaimah</title>
+  <meta name="description" content="X Stop offers entertainment, cafe, and flower services in Ras Al Khaimah. Book your experience today!">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/enhanced-styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <div id="header-container"></div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Welcome to X Stop</h1>
+        <p class="hero-subtitle">Your one-stop destination for entertainment, refreshments, and beautiful flowers in Ras Al Khaimah.</p>
+        <a href="/booking.html" class="btn btn-book">Book Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activities Section -->
+  <section class="activities">
+    <div class="container">
+      <h2 class="section-title">Our Activities</h2>
+<div class="activity-filters">
+  <select id="age-filter" onchange="filterActivities()">
+    <option value="">All Ages</option>
+    <option value="kids">Kids</option>
+    <option value="adults">Adults</option>
+  </select>
+  <select id="type-filter" onchange="filterActivities()">
+    <option value="">All Types</option>
+    <option value="relaxing">Relaxing</option>
+    <option value="competitive">Competitive</option>
+    <option value="scary">Scary</option>
+  </select>
+  <select id="location-filter" onchange="filterActivities()">
+    <option value="">All Locations</option>
+    <option value="rak-mall">RAK Mall</option>
+    <option value="rifaa">Rifaa</option>
+    <option value="sharjah">Sharjah</option>
+  </select>
+</div>
+      <div class="activities-grid">
+        <div class="activity-card">
+          <img src="/assets/images/laser-tag.jpg" alt="Laser Tag" class="activity-image">
+          <h3>Laser Tag</h3>
+          <p>Available at: RAK Mall, Rifaa</p>
+          <a href="/booking.html?activity=laser-tag" class="btn btn-red">Book Now</a>
+        </div>
+        <div class="activity-card">
+          <img src="/assets/images/horror-escape.jpg" alt="Horror Escape Room" class="activity-image">
+          <h3>Horror Escape Room</h3>
+          <p>Available at: RAK Mall</p>
+          <a href="/booking.html?activity=horror-escape" class="btn btn-red">Book Now</a>
+        </div>
+        <div class="activity-card">
+          <img src="/assets/images/kids-area.jpg" alt="Kids Area" class="activity-image">
+          <h3>Kids Area</h3>
+          <p>AED 30/hour, Face Painting: AED 10<br>Available at: RAK Mall</p>
+          <a href="/booking.html?activity=kids-area" class="btn btn-red">Book Now</a>
+        </div>
+        <div class="activity-card">
+          <img src="/assets/images/smash-room.jpg" alt="Smash Room" class="activity-image">
+          <h3>Smash Room</h3>
+          <p>AED 50 (Small), AED 80 (Medium), AED 120 (Large)<br>Available at: RAK Mall</p>
+          <a href="/booking.html?activity=smash-room" class="btn btn-red">Book Now</a>
+        </div>
+        <div class="activity-card">
+          <img src="/assets/images/billiard.jpg" alt="Billiard" class="activity-image">
+          <h3>Billiard</h3>
+          <p>Available at: Sharjah (Expert Billiard)</p>
+          <a href="/booking.html?activity=billiard" class="btn btn-red">Book Now</a>
+        </div>
+        <div class="activity-card">
+          <img src="/assets/images/playstation.jpg" alt="PlayStation" class="activity-image">
+          <h3>PlayStation</h3>
+          <p>Available at: Rifaa</p>
+          <a href="/booking.html?activity=playstation" class="btn btn-red">Book Now</a>
+        </div>
+        <div class="activity-card">
+          <img src="/assets/images/pc-gaming.jpg" alt="PC Gaming" class="activity-image">
+          <h3>PC Gaming</h3>
+          <p>Available at: RAK Mall, Rifaa</p>
+          <a href="/booking.html?activity=pc-gaming" class="btn btn-red">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Branches Section -->
+  <section class="branches">
+    <div class="container">
+      <h2 class="section-title">Our Branches</h2>
+      <div class="branches-grid">
+        <div class="branch-card">
+          <img src="/assets/SHOPS_LOGOS/entertainment-logo.png" alt="Entertainment Logo" class="branch-logo">
+          <div class="branch-content">
+            <h3 class="branch-title">X Entertainment RAK Mall</h3>
+            <p>Laser Tag, Horror Escape Room, Kids Area, Smash Room, PC Gaming</p>
+            <a href="/pages/entertainment/rak-mall.html" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+        <div class="branch-card">
+          <img src="/assets/SHOPS_LOGOS/entertainment-logo.png" alt="Entertainment Logo" class="branch-logo">
+          <div class="branch-content">
+            <h3 class="branch-title">X Entertainment Rifaa</h3>
+            <p>Laser Tag, PlayStation, PC Gaming</p>
+            <a href="/pages/entertainment/rifaa.html" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+        <div class="branch-card">
+          <img src="/assets/SHOPS_LOGOS/entertainment-logo.png" alt="Entertainment Logo" class="branch-logo">
+          <div class="branch-content">
+            <h3 class="branch-title">Expert Billiard - Sharjah</h3>
+            <p>Billiard</p>
+            <a href="/pages/entertainment/sharjah.html" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+        <div class="branch-card">
+          <img src="/assets/SHOPS_LOGOS/cafe-logo.png" alt="Cafe Logo" class="branch-logo">
+          <div class="branch-content">
+            <h3 class="branch-title">X Café - Super Bowling</h3>
+            <p>Delicious drinks and snacks</p>
+            <a href="/pages/cafe/super-bowling.html" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+        <div class="branch-card">
+          <img src="/assets/SHOPS_LOGOS/cafe-logo.png" alt="Cafe Logo" class="branch-logo">
+          <div class="branch-content">
+            <h3 class="branch-title">Haunted X Café - RAK</h3>
+            <p>Themed café with spooky atmosphere</p>
+            <a href="/pages/cafe/haunted.html" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+        <div class="branch-card">
+          <img src="/assets/SHOPS_LOGOS/flower-logo.png" alt="Flower Logo" class="branch-logo">
+          <div class="branch-content">
+            <h3 class="branch-title">X Flowers - RAK Mall</h3>
+            <p>Beautiful floral arrangements</p>
+            <a href="/pages/flowers/rak-mall.html" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cafe Menu Section -->
+  <section id="cafe-menu">
+    <div class="container">
+      <img src="/assets/SHOPS_LOGOS/cafe-logo.png" alt="X Cafe Logo" class="section-logo">
+      <h2>X Café Menu</h2>
+      <div class="menu-tabs">
+        <button class="tab-button" onclick="showMenu('rak')">RAK Mall</button>
+        <button class="tab-button" onclick="showMenu('sb')">Super Bowling</button>
+        <button class="tab-button" onclick="showMenu('haunted')">Haunted Café</button>
+      </div>
+      <div id="rak" class="menu-content">
+        <h3>RAK Mall</h3>
+        <p>Full menu with drinks, desserts, pizzas, and more.</p>
+        <img src="/assets/images/cafe/rak-menu.jpg" alt="RAK Menu" style="max-width:100%;" onerror="this.src='/assets/SHOPS_LOGOS/cafe-logo.png'; this.alt='RAK Menu Unavailable';">
+        <a href="https://wa.me/971547190018" class="btn btn-gold">Order via WhatsApp</a>
+      </div>
+      <div id="sb" class="menu-content" style="display:none;">
+        <h3>Super Bowling</h3>
+        <p>Same items with different pricing. Adjusted for in-house experience.</p>
+        <img src="/assets/images/cafe/sb-menu.jpg" alt="Super Bowling Menu" style="max-width:100%;" onerror="this.src='/assets/SHOPS_LOGOS/cafe-logo.png'; this.alt='Super Bowling Menu Unavailable';">
+        <a href="https://wa.me/971547190018" class="btn btn-gold">Order via WhatsApp</a>
+      </div>
+      <div id="haunted" class="menu-content" style="display:none;">
+        <h3>Haunted X Café</h3>
+        <p>Specialty drinks available daily. No food service.</p>
+        <img src="/assets/images/cafe/haunted-menu.jpg" alt="Haunted Cafe Menu" style="max-width:100%;" onerror="this.src='/assets/SHOPS_LOGOS/cafe-logo.png'; this.alt='Haunted Cafe Menu Unavailable';">
+        <a href="https://wa.me/971547190018" class="btn btn-gold">Order via WhatsApp</a>
+      </div>
+      <div class="special-booking-info text-center mt-5">
+        <h3>For Birthday Parties & Special Events at X Café:</h3>
+        <p><i class="fas fa-phone"></i> +971 55 749 0383 (Contact the Owner)</p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:info.xholdings@gmail.com">info.xholdings@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flowers Section -->
+  <section id="flowers">
+    <div class="container">
+      <img src="/assets/SHOPS_LOGOS/flower-logo.png" alt="X Flowers Logo" class="section-logo">
+      <h2>X Flowers</h2>
+      <p>Explore our beautiful floral arrangements on Instagram.</p>
+      <a href="https://www.instagram.com/xflower_rak/" target="_blank" class="btn btn-secondary"><i class="fab fa-instagram"></i> @xflower_rak</a>
+      <a href="https://wa.me/971547190018" class="btn btn-gold">Order via WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/navigation.js"></script>
+  <script>
+    fetch('/components/header/header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        if (mobileMenuBtn && mobileMenuOverlay && mobileMenuClose) {
+          mobileMenuBtn.addEventListener('click', () => mobileMenuOverlay.style.display = 'flex');
+          mobileMenuClose.addEventListener('click', () => mobileMenuOverlay.style.display = 'none');
+        }
+      });
+
+    fetch('/components/footer/footer.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('footer-container').innerHTML = data);
+
+    function showMenu(id) {
+      const tabs = document.querySelectorAll(".menu-content");
+      tabs.forEach(tab => tab.style.display = "none");
+      document.getElementById(id).style.display = "block";
+    }
+
+function filterActivities() {
+  const ageFilter = document.getElementById('age-filter').value;
+  const typeFilter = document.getElementById('type-filter').value;
+  const locationFilter = document.getElementById('location-filter').value;
+  const cards = document.querySelectorAll('.activity-card');
+
+  cards.forEach(card => {
+    const activity = card.querySelector('h3').textContent.toLowerCase();
+    const locations = card.querySelector('p').textContent.toLowerCase();
+    const isKids = ['kids area'].includes(activity);
+    const isScary = ['horror escape room'].includes(activity);
+    const isCompetitive = ['laser tag', 'billiard', 'playstation', 'pc gaming'].includes(activity);
+    const isRelaxing = ['smash room'].includes(activity);
+
+    let show = true;
+
+    if (ageFilter) {
+      if (ageFilter === 'kids' && !isKids) show = false;
+      if (ageFilter === 'adults' && isKids) show = false;
+    }
+
+    if (typeFilter) {
+      if (typeFilter === 'relaxing' && !isRelaxing) show = false;
+      if (typeFilter === 'competitive' && !isCompetitive) show = false;
+      if (typeFilter === 'scary' && !isScary) show = false;
+    }
+
+    if (locationFilter && !locations.includes(locationFilter)) {
+      show = false;
+    }
+
+    card.style.display = show ? 'block' : 'none';
+  });
+}
+  </script>
+</body>
+</html>

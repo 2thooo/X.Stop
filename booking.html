@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Experience - X Stop</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/enhanced-styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .booking-form-section { padding: 60px 0; }
+    .booking-form { max-width: 600px; margin: 0 auto; background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 10px; }
+    .form-group { margin-bottom: 20px; }
+    .form-label { display: block; font-weight: 600; margin-bottom: 10px; color: var(--x-white); }
+    .form-input, .form-select { width: 100%; padding: 10px; border: 1px solid var(--x-yellow); border-radius: 5px; background: var(--x-black); color: var(--x-white); }
+    .form-submit { width: 100%; padding: 15px; background: var(--x-yellow); color: var(--x-black); border: none; border-radius: 5px; font-weight: 600; cursor: pointer; }
+    .form-submit:hover { background: var(--x-white); }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div id="header-container"></div>
+
+  <!-- Booking Form -->
+  <section class="booking-form-section">
+    <div class="container">
+      <h1 class="section-title">Book Your Experience</h1>
+      <div class="booking-form">
+        <form id="booking-form">
+          <div class="form-group">
+            <label for="activity" class="form-label">Select Activity</label>
+            <select id="activity" name="activity" class="form-select" required onchange="updateBranches()">
+              <option value="">Choose an Activity</option>
+              <option value="laser-tag">Laser Tag</option>
+              <option value="horror-escape">Horror Escape Room</option>
+              <option value="kids-area">Kids Area</option>
+              <option value="smash-room">Smash Room</option>
+              <option value="billiard">Billiard</option>
+              <option value="playstation">PlayStation</option>
+              <option value="pc-gaming">PC Gaming</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="branch" class="form-label">Select Branch</label>
+            <select id="branch" name="branch" class="form-select" required>
+              <option value="">Select a Branch</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="date" class="form-label">Date</label>
+            <input type="date" id="date" name="date" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label for="time" class="form-label">Time</label>
+            <input type="time" id="time" name="time" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required>
+          </div>
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" id="phone" name="phone" class="form-input" placeholder="+971 50 123 4567" required>
+          </div>
+          <button type="submit" class="form-submit">Book via WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/navigation.js"></script>
+  <script>
+    fetch('/components/header/header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        if (mobileMenuBtn && mobileMenuOverlay && mobileMenuClose) {
+          mobileMenuBtn.addEventListener('click', () => mobileMenuOverlay.style.display = 'flex');
+          mobileMenuClose.addEventListener('click', () => mobileMenuOverlay.style.display = 'none');
+        }
+      });
+
+    fetch('/components/footer/footer.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('footer-container').innerHTML = data);
+
+    const activityBranchMap = {
+      'laser-tag': ['rak-mall', 'rifaa'],
+      'horror-escape': ['rak-mall'],
+      'kids-area': ['rak-mall'],
+      'smash-room': ['rak-mall'],
+      'billiard': ['sharjah'],
+      'playstation': ['rifaa'],
+      'pc-gaming': ['rak-mall', 'rifaa']
+    };
+
+    const branchNames = {
+      'rak-mall': 'RAK Mall',
+      'rifaa': 'Rifaa',
+      'sharjah': 'Expert Billiard - Sharjah'
+    };
+
+    const whatsappNumbers = {
+      'rak-mall': '971547190018',
+      'rifaa': '971509027520',
+      'sharjah': '971586249734'
+    };
+
+    function updateBranches() {
+      const activity = document.getElementById('activity').value;
+      const branchSelect = document.getElementById('branch');
+      branchSelect.innerHTML = '<option value="">Select a Branch</option>';
+
+      if (activity && activityBranchMap[activity]) {
+        activityBranchMap[activity].forEach(branch => {
+          const option = document.createElement('option');
+          option.value = branch;
+          option.textContent = branchNames[branch];
+          branchSelect.appendChild(option);
+        });
+      }
+    }
+
+    document.getElementById('booking-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const activity = document.getElementById('activity').value;
+      const branch = document.getElementById('branch').value;
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+
+      if (!activity || !branch || !date || !time || !name || !phone) {
+        alert('Please fill in all fields.');
+        return;
+      }
+
+      const message = `Booking Request\nActivity: ${activity.replace('-', ' ')}\nBranch: ${branchNames[branch]}\nDate: ${date}\nTime: ${time}\nName: ${name}\nPhone: ${phone}`;
+      const whatsappNumber = whatsappNumbers[branch];
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    });
+
+    // Set minimum date to today
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('date').setAttribute('min', today);
+  </script>
+</body>
+</html>
